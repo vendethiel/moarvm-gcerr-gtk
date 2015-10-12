@@ -1,7 +1,7 @@
 use GTK::Simple;
-use OO::Monitors;
+# `CapturingOutput` was a monitor in my code, but even with a class, it errors
+#use OO::Monitors;
 
-# was a monitor in my code, but even with a class, it errors
 class CapturingOutput {
   has Supply $.supply .= new;
 
