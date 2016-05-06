@@ -3,14 +3,16 @@ use GTK::Simple;
 #use OO::Monitors;
 
 class CapturingOutput {
-  has Supply $.supply .= new;
+  has Supplier $.supplier .= new;
 
   method print(*@str) {
     # doesn't error without this line
-    $.supply.emit($_) for @str;
+    $.supplier.emit($_) for @str;
   }
 
   method flush { }
+
+  method supply { $.supplier.Supply }
 }
 
 my GTK::Simple::App $app .= new;
