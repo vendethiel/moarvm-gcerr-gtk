@@ -6,11 +6,7 @@ class CapturingOutput {
   has Supplier $.supplier .= new;
 
   method print(*@str) {
-    # doesn't error without this line
-    $.supplier.emit($_) for @str;
   }
-
-  method flush { }
 
   method supply { $.supplier.Supply }
 }
